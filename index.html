@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Letter to Sonal 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    /* We'll add CSS next */
+  </style>
+</head>
+<body>
+  <div id="envelope-screen">
+    <div class="envelope">
+      <img src="envelope.png" alt="Envelope" class="envelope-img">
+      <button onclick="openLetter()">Open Letter from Sahil Bhoi 💌</button>
+    </div>
+  </div>
+
+  <div id="letter-screen" style="display: none;">
+    <div class="floating-bg"></div>
+    <div class="letter-content">
+      <h1>My Dear Sonal Kahar 🌸</h1>
+      <p>
+        You are the melody to my silence, the momo to my hunger, the guitar string to my music.
+        <br><br>
+        Every moment with you is like a song—filled with rhythm, harmony, and warmth.
+        I hope this letter reminds you how much you mean to me. Keep smiling always. 🌼
+      </p>
+      <p>
+        Whenever you're sad, remember this letter was sealed with love and beats of my heart. 💖
+        <br><br>
+        Yours lovingly,<br>
+        Sahil Bhoi 🎸
+      </p>
+
+      <div class="reply-section">
+        <h3>Write Your Reply 💌</h3>
+        <textarea id="replyBox" placeholder="Type your message here..."></textarea>
+        <button onclick="saveReply()">Send Reply</button>
+      </div>
+
+      <div class="saved-reply">
+        <h3>💬 Sonal's Reply</h3>
+        <p id="savedReplyText">No reply yet...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('envelope-screen').style.display = 'none';
+      document.getElementById('letter-screen').style.display = 'block';
+    }
+
+    function saveReply() {
+      const reply = document.getElementById('replyBox').value;
+      localStorage.setItem('sonalReply', reply);
+      document.getElementById('savedReplyText').innerText = reply || "No reply yet...";
+      alert("Reply saved ❤️");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem('sonalReply');
+      if (saved) document.getElementById('savedReplyText').innerText = saved;
+    }
+  </script>
+</body>
+</html>
