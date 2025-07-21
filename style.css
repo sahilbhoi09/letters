@@ -1,96 +1,162 @@
+/* Global Styling */
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background-color: #fff0f5;
+  background: linear-gradient(to bottom right, #ffe4ec, #fff8f0);
   overflow-x: hidden;
 }
 
-.envelope {
+/* Envelope Screen */
+#envelope-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   text-align: center;
-  padding-top: 50px;
 }
 
 .envelope-img {
   width: 200px;
   margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.05);}
+  100% { transform: scale(1);}
 }
 
 .envelope button {
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #ff69b4;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
 }
 
 .envelope button:hover {
   background: #ff1493;
 }
 
-.letter-content {
-  max-width: 600px;
-  margin: 50px auto;
-  background: #fff8f0;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  font-family: 'Great Vibes', cursive;
-  color: #4b2e2e;
-  font-size: 22px;
+/* Letter Screen */
+#letter-screen {
+  padding: 30px 20px;
   position: relative;
-  z-index: 2;
 }
 
+/* Floating Background Emojis */
+.floating-bg::before {
+  content: '🎸     🥟     🎸     🥟     🎸     🥟     🎸     🥟';
+  position: absolute;
+  font-size: 40px;
+  opacity: 0.1;
+  white-space: nowrap;
+  animation: float 60s linear infinite;
+  top: 10%;
+  left: -100%;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
+}
+
+/* Letter Content Box */
+.letter-content {
+  max-width: 800px;
+  margin: auto;
+  background: #fffdfa;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  color: #4b2e2e;
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.8;
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+}
+
+.letter-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #d14f89;
+  text-align: center;
+}
+
+/* Reply Section */
 .reply-section {
-  margin-top: 30px;
+  margin-top: 40px;
   font-family: 'Quicksand', sans-serif;
+  color: #333;
+}
+
+.reply-section h3 {
+  margin-bottom: 10px;
 }
 
 textarea {
   width: 100%;
-  height: 100px;
-  padding: 10px;
+  height: 120px;
+  padding: 12px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  resize: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
 }
 
-button {
-  margin-top: 10px;
+.reply-section button {
+  margin-top: 12px;
   background-color: #8e44ad;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(142, 68, 173, 0.4);
 }
 
-button:hover {
+.reply-section button:hover {
   background-color: #732d91;
 }
 
+/* Saved Reply Box */
 .saved-reply {
-  margin-top: 20px;
-  font-family: 'Quicksand', sans-serif;
+  margin-top: 30px;
   background: #ffe4f0;
   padding: 15px;
   border-radius: 10px;
+  font-family: 'Quicksand', sans-serif;
+  color: #6b184f;
+  border-left: 5px solid #ff69b4;
 }
 
-.floating-bg::before {
-  content: '🎸🥟🎸🥟🎸🥟🎸🥟';
-  position: absolute;
-  white-space: nowrap;
-  font-size: 50px;
-  opacity: 0.2;
-  animation: float 40s linear infinite;
-  top: 10%;
-  left: -100%;
-}
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .letter-content {
+    padding: 20px;
+    font-size: 18px;
+  }
 
-@keyframes float {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(300%); }
+  .letter-content h1 {
+    font-size: 30px;
+  }
+
+  .envelope-img {
+    width: 150px;
+  }
+
+  .envelope button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }
