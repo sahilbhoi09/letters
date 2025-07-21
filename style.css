@@ -1,6 +1,7 @@
 /* Global Styling */
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Quicksand', sans-serif;
   background: linear-gradient(to bottom right, #ffe4ec, #fff8f0);
   overflow-x: hidden;
@@ -14,6 +15,7 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
+  padding: 20px;
 }
 
 .envelope-img {
@@ -23,9 +25,9 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.05);}
-  100% { transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .envelope button {
@@ -51,6 +53,15 @@ body {
 }
 
 /* Floating Background Emojis */
+.floating-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .floating-bg::before {
   content: '🎸     🥟     🎸     🥟     🎸     🥟     🎸     🥟';
   position: absolute;
@@ -58,9 +69,8 @@ body {
   opacity: 0.1;
   white-space: nowrap;
   animation: float 60s linear infinite;
-  top: 10%;
+  top: 20%;
   left: -100%;
-  z-index: 0;
 }
 
 @keyframes float {
@@ -71,7 +81,7 @@ body {
 /* Letter Content Box */
 .letter-content {
   max-width: 800px;
-  margin: auto;
+  margin: 100px auto;
   background: #fffdfa;
   padding: 40px;
   border-radius: 15px;
@@ -82,6 +92,8 @@ body {
   z-index: 2;
   line-height: 1.8;
   background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-repeat: repeat;
+  background-size: auto;
 }
 
 .letter-content h1 {
@@ -89,6 +101,7 @@ body {
   font-size: 36px;
   color: #d14f89;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Reply Section */
@@ -111,6 +124,7 @@ textarea {
   resize: none;
   font-family: 'Quicksand', sans-serif;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .reply-section button {
@@ -145,10 +159,11 @@ textarea {
   .letter-content {
     padding: 20px;
     font-size: 18px;
+    margin: 50px 10px;
   }
 
   .letter-content h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .envelope-img {
